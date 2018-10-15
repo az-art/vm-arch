@@ -2,7 +2,7 @@
 #- name: Upgrade all packages to the latest version
 #  shell: apt update -y && apt upgrade -y
 
-- name: Install Xfce4 Desktop
+- name: Install Xorg Desktop
   package:
     name: xorg
     state: present
@@ -40,6 +40,5 @@
     - nitrogen
     - feh
     - lxappearance
-    - font-manager
-    - fonts-liberation
-    - fonts-roboto
+    - ttf-liberation
+    - ttf-roboto
