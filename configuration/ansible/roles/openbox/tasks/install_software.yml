@@ -1,0 +1,29 @@
+---
+#- name: Upgrade all packages to the latest version
+#  shell: apt update -y && apt upgrade -y
+
+- name: Install Xfce4 Desktop
+  package:
+    name: xorg
+    state: present
+
+- name: Install Xfce4 Desktop
+  package:
+    name: xfce4
+    state: present
+
+- name: Install Openbox & Utils
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - openbox
+    - compton
+    - tint2
+    - conky
+    - nitrogen
+    - feh
+    - lxappearance
+    - font-manager
+    - fonts-liberation
+    - fonts-roboto

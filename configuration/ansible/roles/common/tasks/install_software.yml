@@ -1,0 +1,36 @@
+- name: Update all packages yum
+  package:
+    name: '*'
+    state: latest
+
+#- name: Update and upgrade apt packages
+#  become: true
+#  apt:
+#    upgrade: yes
+#    update_cache: yes
+#    cache_valid_time: 86400 #One day
+#  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install packages
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - git
+    - wget
+    - unzip
+    - python-pip
+    - ranger
+    - terminator
+    - vim
+
+- name: Install boto3 (AWS support)
+  pip:
+    name: boto3
+#    version: 1.7.13
+
+- name: Install awscli (AWS support)
+  pip:
+    name: awscli
+#    version: 1.15.13
+#    extra_args: --upgrade

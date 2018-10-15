@@ -1,0 +1,65 @@
+---
+- name: Add docker group
+  group:
+    name: docker
+    state: present
+
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Add default sudo user
+  user:
+    name: "{{ default_sudo_user }}"
+    shell: /bin/bash
+    groups: docker, wheel
+    append: yes
+    state: present
+
+#- name: Add wheel group to sudoers
+#  lineinfile:
+#   path: /etc/sudoers
+#   state: present
+#   regexp: '^%wheel\s'
+#   line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+#
+#- name: Create cert dir
+#  file:
+#    state: directory
+#    path: "/home/{{ default_sudo_user }}/.ssh"
+#    owner: "{{ default_sudo_user }}"
+#    group: "{{ default_sudo_user }}"
+#    mode: 0700
+#
+#- name: Add id_rsa & id_rsa.pub for default user
+#  copy:
+#    src: "{{ item }}"
+#    dest: "/home/{{ default_sudo_user }}/.ssh"
+#    owner: "{{ default_sudo_user }}"
+#    group: "{{ default_sudo_user }}"
+#    mode: 0600
+#  with_items:
+#    - id_rsa
+#    - id_rsa.pub
+#
+#- name: Create authorized_keys file
+#  file:
+#    path: "/home/{{ default_sudo_user }}/.ssh/authorized_keys"
+#    state: touch
+#    owner: "{{ default_sudo_user }}"
+#    group: "{{ default_sudo_user }}"
+#    mode: 0600
+#
+#- name: Add public cert to authorized_keys
+#  shell: cat id_rsa.pub > authorized_keys
+#  args:
+#    chdir: "/home/{{ default_sudo_user }}/.ssh"

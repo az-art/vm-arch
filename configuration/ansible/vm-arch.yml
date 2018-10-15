@@ -1,0 +1,15 @@
+---
+- name: creating Dev Env
+  hosts: all
+  remote_user: user
+  become: yes
+
+  roles:
+  - common
+#  - docker
+#  - guestadditions
+  - openbox
+#  - java
+#  - hashicorp
+  - zsh
+#  - intellij-idea

@@ -1,0 +1,22 @@
+---
+- name: Create OpenType font folder
+  file:
+    state: directory
+    path: /usr/share/fonts/opentype
+
+- name: Get Apple San Francisco font
+  git:
+    repo: https://github.com/AppleDesignResources/SanFranciscoFont.git
+    dest: /usr/share/fonts/opentype/SanFranciscoFont
+    accept_hostkey: yes
+    force: yes
+
+- name: Change permissions
+  file:
+    path:  "{{ item }}"
+    mode: 0644
+  with_fileglob:
+    - "/usr/share/fonts/opentype/SanFranciscoFont/*"
+
+- name: Update fc-cache
+  shell: fc-cache

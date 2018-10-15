@@ -1,0 +1,4 @@
+---
+- include_tasks: install_software.yml
+- include_tasks: copy_configuration.yml
+- include_tasks: install_snfs_font.yml

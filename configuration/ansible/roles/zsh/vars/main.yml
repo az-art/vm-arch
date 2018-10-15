@@ -1,0 +1,5 @@
+---
+docker:
+  user: user
+  group: docker
+docker_compose_version: "1.18.0"

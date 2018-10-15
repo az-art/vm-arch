@@ -1,0 +1,61 @@
+[global_config]
+  title_transmit_bg_color = "#202020"
+  title_inactive_fg_color = "#d2c5bc"
+  suppress_multiple_term_dialog = True
+  title_transmit_fg_color = "#d2c5bc"
+  title_inactive_bg_color = "#606060"
+[keybindings]
+[profiles]
+  [[default]]
+    #palette = "#202020:#b91e2e:#81957c:#f9bb80:#356579:#2d2031:#0b3452:#909090:#606060:#d14548:#a7b79a:#fae3a0:#7491a1:#87314e:#0f829d:#fff0f0"
+    pallete = "#4A3637:#D17B49:#7B8748:#AF865A:#535C5C:#775759:#6D715E:#C0B18B:#4A3637:#D17B49:#7B8748:#AF865A:#535C5C:#775759:#6D715E:#C0B18B"
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    background_image = None
+    cursor_color = "#d2c5bc"
+    font = Monospace 14
+    foreground_color = "#C0B18B"
+    show_titlebar = False
+    background_color = "#1F1F1F"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[docker_split]]
+    [[[child0]]]
+      position = 0:0
+      type = Window
+      order = 0
+      parent = ""
+      size = 1920, 1080
+    [[[child1]]]
+      position = 1149
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 540
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+[plugins]

@@ -1,0 +1,10 @@
+target/
+test-output/
+.terraform/
+.idea/
+.vagrant/
+.settings/
+.classpath
+.project
+.tfstate
+.tfstate.backup

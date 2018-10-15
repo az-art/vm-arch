@@ -1,0 +1,77 @@
+---
+- name: Install ZSH
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - zsh
+
+- name: cloning repo
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "{{ item.home }}/.oh-my-zsh"
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: set permissions
+  file:
+    path: "{{ item.home }}/.oh-my-zsh"
+    state: directory
+    recurse: yes
+    owner: "{{ item.username }}"
+    group: "{{ item.usergroup }}"
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: Download Hack Regular Nerd Font
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+    dest: /usr/share/fonts/opentype/
+    mode: 0755
+
+- name: Get Powerline fonts
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: /home/vagrant/fonts
+    accept_hostkey: yes
+    force: yes
+
+- name: Install Powerline fonts
+  shell: ./install.sh
+  args:
+    chdir: /home/vagrant/fonts/
+
+- name: Get Powerlevel9k theme
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
+    dest: "{{ item.home }}/.oh-my-zsh/custom/themes/powerlevel9k"
+    accept_hostkey: yes
+    force: yes
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: add syntax highlighting plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ item.home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: add autosuggestions plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "{{ item.home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: Copy .zshrc
+  copy:
+    src: .zshrc
+    dest: "{{ item.home }}"
+    owner: "{{ item.username }}"
+    group: "{{ item.username }}"
+    mode: 0755
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: Change users shell
+  user:
+    name: "{{ item.username }}"
+    shell: /bin/zsh
+
+
+//https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
