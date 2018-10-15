@@ -7,6 +7,19 @@
     name: xorg
     state: present
 
+- name: Install LightDM Desktop
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - lightdm
+    - lightdm-gtk-greeter
+
+- name: Enable LightDM
+  systemd:
+    name: lightdm.service
+    enabled: yes
+
 - name: Install Xfce4 Desktop
   package:
     name: "{{item}}"
