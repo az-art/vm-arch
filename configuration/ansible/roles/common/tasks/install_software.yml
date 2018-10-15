@@ -1,7 +1,7 @@
-- name: Update all packages yum
-  package:
-    name: '*'
-    state: latest
+- name: Run the equivalent of "pacman -Syu"
+  pacman:
+    update_cache: yes
+    upgrade: yes
 
 #- name: Update and upgrade apt packages
 #  become: true
