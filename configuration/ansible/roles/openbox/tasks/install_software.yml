@@ -4,8 +4,15 @@
 
 - name: Install Xorg Desktop
   package:
-    name: xorg
+    name: "{{item}}"
     state: present
+  with_items:
+    - xorg-server
+    - xorg-apps
+    - xorg-xinit
+    - xorg-twm
+    - xterm
+
 
 - name: Install LightDM Desktop
   package:
