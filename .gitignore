@@ -2,6 +2,7 @@ target/
 test-output/
 .terraform/
 .idea/
+.iso
 .vagrant/
 .settings/
 .classpath

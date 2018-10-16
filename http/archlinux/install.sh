@@ -24,10 +24,12 @@ mkswap "${device}1"
 mkfs.ext4 "${device}2"
 mount "${device}2" /mnt
 
-curl -fsS https://www.archlinux.org/mirrorlist/?country=all > /tmp/mirrolist
-grep '^#Server' /tmp/mirrolist | sort -R | head -n 50 | sed 's/^#//' > /tmp/mirrolist.50
-rankmirrors -v /tmp/mirrolist.50 | tee /etc/pacman.d/mirrorlist
-pacstrap /mnt base grub openssh sudo
+#pacman -Syu pacman-mirrorlist --noconfirm --needed
+#curl -fsS https://www.archlinux.org/mirrorlist/?country=all > /tmp/mirrolist
+#grep '^#Server' /tmp/mirrolist | sort -R | head -n 50 | sed 's/^#//' > /tmp/mirrolist.50
+#rankmirrors -v /tmp/mirrolist.50 | tee /etc/pacman.d/mirrorlist
+pacstrap /mnt base base-devel grub openssh sudo
+
 
 swapon "${device}1"
 genfstab -p /mnt >> /mnt/etc/fstab
