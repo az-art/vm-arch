@@ -5,8 +5,8 @@
     "iso_url": "{{user `mirror`}}/iso/{{user `arch_version`}}/archlinux-{{user `arch_version`}}-x86_64.iso",
     "iso_checksum": "{{user `iso_checksum`}}",
     "iso_checksum_type": "{{user `iso_checksum_type`}}",
-    "iso_target_path": "archlinux-{{user `arch_version`}}-x86_64.iso",
-    "output_directory": "output-archlinux-x86_64-{{build_type}}",
+    "iso_target_path": "tmp/archlinux-{{user `arch_version`}}-x86_64.iso",
+    "output_directory": "tmp/output-archlinux-x86_64-{{build_type}}",
     "vm_name": "packer-archlinux-x86_64",
     "disk_size": "{{user `disk_size`}}",
     "headless": "{{user `headless`}}",
@@ -31,6 +31,8 @@
     "type": "shell",
     "scripts": [
       "scripts/archlinux/virtualbox.sh",
+      "scripts/common/vagrant.sh",
+      "scripts/common/sshd.sh",
       "scripts/archlinux/cleanup.sh",
       "scripts/common/minimize.sh"
     ]

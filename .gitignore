@@ -1,11 +1,9 @@
 target/
 test-output/
-.terraform/
 .idea/
 .iso
+.box
 .vagrant/
 .settings/
 .classpath
 .project
-.tfstate
-.tfstate.backup

@@ -1,11 +1,6 @@
-# Project variables
-DOCKER_REGISTRY_HOST ?= registry.corp.globoforce.com
-PROJECT ?= globoforce
-CURRENT_DIR ?= $(shell basename `pwd`)
-BRANCH ?= TRUNK-SNAPSHOT
-NEXUS_HOST ?= http://10.40.22.40:8081/nexus
-IMAGE_NAME ?= $(DOCKER_REGISTRY_HOST)/$(PROJECT)/$(CURRENT_DIR)
-ARGS=--build-arg BRANCH=$(BRANCH) --build-arg NEXUS_HOST=$(NEXUS_HOST)
+ARCH_PACKER_TEMPLATE=archlinux-x86_64.json
+ARGS=
+#ARGS=-var compression_level=0 -var disk_size=4000
 
 .PHONY: all build publish help
 
@@ -15,28 +10,32 @@ default: help ;
 
 all: build test publish clean
 
-build:
-	${INFO} "Building image... $(IMAGE_NAME):$(BRANCH) with ARGS:$(ARGS)"
-	@ docker build -t $(IMAGE_NAME):$(BRANCH) --no-cache $(ARGS) .
+validate:
+	${INFO} "Validating packer image... $(ARCH_PACKER_TEMPLATE)"
+	@ packer validate $(ARCH_PACKER_TEMPLATE)
 
-test:
-	${INFO} "Testing image... $(IMAGE_NAME):$(BRANCH)"
+build: validate
+	${INFO} "Building packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
+	@ packer build $(ARGS) $(ARCH_PACKER_TEMPLATE)
+
+up:
+	${INFO} "Starting up VM $(ARCH_PACKER_TEMPLATE)"
 	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
 	${INFO} "Image OK"
 
-publish: login
-	${INFO} "Publishing image... $(IMAGE_NAME):$(BRANCH)"
-	@docker push $(IMAGE_NAME):$(BRANCH)
-	${INFO} "Publish complete"
+destroy:
+	${INFO} "Starting up packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
+	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
+	${INFO} "Image OK"
 
-login:
-	${INFO} "Logging in to Docker registry $(DOCKER_REGISTRY_HOST)..."
-	@ docker login $(DOCKER_REGISTRY_HOST) -u ${GF_REGISTRY_USER} -p ${GF_REGISTRY_PASS}
-	${INFO} "Logged in to Docker registry $(DOCKER_REGISTRY_HOST)"
+provision:
+	${INFO} "Starting up packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
+	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
+	${INFO} "Image OK"
 
 clean:
-	${INFO} "Cleaning up images..."
-	@docker images --filter=reference='$(IMAGE_NAME)' -q | xargs -r docker rmi -f
+	${INFO} "Cleaning up ..."
+	@ docker images --filter=reference='$(IMAGE_NAME)' -q | xargs -r docker rmi -f
 
 help:
 	${INFO} "-----------------------------------------------------------------------"

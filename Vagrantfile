@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/arch"
+  config.vm.box = "archbox"
   config.vm.hostname = "arch.local"
   config.ssh.insert_key = false
   #config.vm.network "forwarded_port", guest: 1521, host: 1521
@@ -9,15 +9,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.name = "ArchLinux VM"
-    vb.memory = 10240
-    vb.cpus = 2
-    vb.gui = true
-    vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
-    vb.customize ["modifyvm", :id, "--vram", '100']
   end
 
   #config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../../configuration/", "/configuration", type: "rsync"
+  config.vm.synced_folder "configuration/", "/configuration", type: "rsync"
 
 #  config.vm.provision "ansible_local" do |ansible|
 #    ansible.install_mode = "pip"
