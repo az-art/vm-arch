@@ -1,6 +1,6 @@
 # vm-arch
 
-VM-Arch is a set of Packer template, installation scripts, Ansible playbook, Vagrantfile and Makefile.
+`vm-arch` is a set of Packer template, installation scripts, Ansible playbook, Vagrantfile and Makefile.
  
 Arch-boxes provides automated builds of the Arch Linux releases for
 different providers and post-processors. Check the providers or post-processor sections if you want to know
