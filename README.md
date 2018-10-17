@@ -8,7 +8,7 @@ which are currently supported.
  
 ## Dependencies
 
-You'll need the following dependencies:
+You'll need the following dependencies to start:
 
 * packer (for base box creation)
 * vagrant (for vagrant images)
@@ -46,7 +46,7 @@ Overview over all variables you can set in `archlinux-x86_64.json` or
 * `ssh_timeout`: specify for how long packer will try to access VM (default: 60m).
 
 
-## how to start the build process locally
+## How to start the build process locally
 (Optional) Edit the `archlinux-x86_64.json` of `ARG` variable in a Makefile before you start the build.
 
 Execute following commands:
@@ -54,11 +54,11 @@ Execute following commands:
 * `make register` - register Packer image as a `archbox` in Vagrant library.
 * `make up` - create VirtualBox virtual machine using Vagrant.
 
-# post-processors
+## Post-processors
 * Vagrant
 * Ansible
 
-# ansible roles
+## Ansible roles
 * `arch-xfce4`: following role will install: 
     * xorg package, xfce4 package, xfce4-goodies package, lightdm, lightdm-gtk-greeter 
     * openbox, conky, tint2, feh, nitrogen, git, wget, unzip, python-pip, ranger, terminator, vim e.t.c
