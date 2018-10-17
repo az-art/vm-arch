@@ -59,5 +59,7 @@ Execute following commands:
 * Ansible
 
 # ansible roles
-* `arch-xfce4`: following role will install: xorg package, xfce4 package, xfce4-goodies package, openbox, conky, tint2, feh, nitrogen, git wget unzip python-pip ranger terminator vim e.t.c
+* `arch-xfce4`: following role will install: 
+    * xorg package, xfce4 package, xfce4-goodies package, lightdm, lightdm-gtk-greeter 
+    * openbox, conky, tint2, feh, nitrogen, git, wget, unzip, python-pip, ranger, terminator, vim e.t.c
      
