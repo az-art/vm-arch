@@ -13,11 +13,11 @@ default: help ;
 all: build register clean
 
 validate:
-	${INFO} "Validating packer image... $(ARCH_PACKER_TEMPLATE)"
+	${INFO} "Validating packer image... [$(ARCH_PACKER_TEMPLATE)]"
 	@ packer validate $(ARCH_PACKER_TEMPLATE)
 
 build: validate
-	${INFO} "Building packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
+	${INFO} "Building packer image... [$(ARCH_PACKER_TEMPLATE)] with [ARGS:$(ARGS)]"
 	@ packer build $(ARGS) $(ARCH_PACKER_TEMPLATE)
 
 register:
@@ -27,7 +27,7 @@ register:
 	@ vagrant box list
 
 up:
-	${INFO} "Starting up VM $(ARCH_BOX_NAME)"
+	${INFO} "Starting up VM [$(ARCH_BOX_NAME)]"
 	@vagrant up
 
 destroy:
@@ -46,9 +46,9 @@ help:
 	${INFO} "-----------------------------------------------------------------------"
 	${INFO} "                      Available commands                              -"
 	${INFO} "-----------------------------------------------------------------------"
-	${INFO} "   > validate - Validation Packer template."
-	${INFO} "   > build - Build VM box."
-	${INFO} "   > register - Register box as Vagrant box."
+	${INFO} "   > validate - Validate Packer template."
+	${INFO} "   > build - Build Packer box."
+	${INFO} "   > register - Register Packer box as Vagrant box."
 	${INFO} "   > destroy - Destroy VM."
 	${INFO} "   > provision - Provision VM."
 	${INFO} "   > all - To execute all steps."
