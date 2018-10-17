@@ -1,4 +1,6 @@
 ARCH_PACKER_TEMPLATE=archlinux-x86_64.json
+ARCH_BOX_FILE=archlinux-x86_64-virtualbox.box
+ARCH_BOX_NAME=archbox
 ARGS=
 #ARGS=-var compression_level=0 -var disk_size=4000
 
@@ -8,7 +10,7 @@ ARGS=
 
 default: help ;
 
-all: build test publish clean
+all: build register clean
 
 validate:
 	${INFO} "Validating packer image... $(ARCH_PACKER_TEMPLATE)"
@@ -18,20 +20,23 @@ build: validate
 	${INFO} "Building packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
 	@ packer build $(ARGS) $(ARCH_PACKER_TEMPLATE)
 
+register:
+	${INFO} "Registering box... [$(ARCH_BOX_NAME)] from [$(ARCH_BOX_FILE)] file."
+	@ -vagrant box remove $(ARCH_BOX_NAME)
+	@ vagrant box add $(ARCH_BOX_NAME) $(ARCH_BOX_FILE)
+	@ vagrant box list
+
 up:
-	${INFO} "Starting up VM $(ARCH_PACKER_TEMPLATE)"
-	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
-	${INFO} "Image OK"
+	${INFO} "Starting up VM $(ARCH_BOX_NAME)"
+	@vagrant up
 
 destroy:
-	${INFO} "Starting up packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
-	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
-	${INFO} "Image OK"
+	${INFO} "Destroying VM... [$(ARCH_BOX_NAME)]."
+	@vagrant destroy
 
 provision:
-	${INFO} "Starting up packer image... $(ARCH_PACKER_TEMPLATE) with ARGS:$(ARGS)"
-	${CHECK_IMAGE} "$(IMAGE_NAME):$(BRANCH)"
-	${INFO} "Image OK"
+	${INFO} "Provisioning... [$(ARCH_BOX_NAME)]."
+	@vagrant provision
 
 clean:
 	${INFO} "Cleaning up ..."
@@ -41,9 +46,11 @@ help:
 	${INFO} "-----------------------------------------------------------------------"
 	${INFO} "                      Available commands                              -"
 	${INFO} "-----------------------------------------------------------------------"
-	${INFO} "   > build - To build $(CURRENT_DIR) image."
-	${INFO} "   > publish - To publish $(CURRENT_DIR) image."
-	${INFO} "   > clean - To cleanup images."
+	${INFO} "   > validate - Validation Packer template."
+	${INFO} "   > build - Build VM box."
+	${INFO} "   > register - Register box as Vagrant box."
+	${INFO} "   > destroy - Destroy VM."
+	${INFO} "   > provision - Provision VM."
 	${INFO} "   > all - To execute all steps."
 	${INFO} "   > help - To see this help."
 	${INFO} "-----------------------------------------------------------------------"

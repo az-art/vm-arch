@@ -1,2 +1,3 @@
 ---
 default_sudo_user: vagrant
+packages_to_install: git wget unzip python-pip ranger terminator vim

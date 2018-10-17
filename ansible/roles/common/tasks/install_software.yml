@@ -5,16 +5,9 @@
 
 - name: Install packages
   package:
-    name: "{{item}}"
+    name: "{{ item }}"
     state: present
-  with_items:
-    - git
-    - wget
-    - unzip
-    - python-pip
-    - ranger
-    - terminator
-    - vim
+  with_items: "{{ packages_to_install }}"
 
 - name: Install boto3 (AWS support)
   pip:
