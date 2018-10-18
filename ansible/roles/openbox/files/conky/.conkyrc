@@ -1,45 +1,66 @@
-# SUPER SIMPLE - Conky config original by cloverskill
-#################
-# Settings
-#################
-
+# - Conky settings
 update_interval 1
 total_run_times 0
-cpu_avg_samples 2
+net_avg_samples 1
+cpu_avg_samples 1
+imlib_cache_size 0
 double_buffer yes
 no_buffers yes
 
+# - Text settings
+use_xft yes
+xftfont Sans:size=12
+override_utf8_locale yes
+text_buffer_size 2048
+
+# - Window specifications
+own_window_class Conky
 own_window yes
 own_window_type normal
 own_window_argb_visual yes
-own_window_argb_value 100
+own_window_argb_value 255
+own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+alignment top_right
+gap_x 40
+gap_y 40
+minimum_size 300 550
+maximum_width 550
+default_bar_size 550 8
+
+# - Graphics settings
 draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders yes
-border_inner_margin 8
-short_units yes
-pad_percents 2
+default_color cccccc
+color0 white
+color1 E07A1F
+color2 white
 
-use_xft yes
-xftfont Liberation Sans:size=8
-xftalpha 0.5
-text_buffer_size 512
-override_utf8_locale yes
-default_color white
-color1 b7b7b7
-color2 686868
-uppercase no
-
-minimum_size 210 20
-maximum_width 220
-gap_x 4
-gap_y -27
-alignment br	
 
 TEXT
-${voffset -24}
-${color1}${font Roboto:style=Light:size=34}${time %H}${color1}${font Roboto:style=Thin:size=34}:${time %M}${font}
-${color2}${font Roboto:size=13}${voffset -34}${offset 125}${time %A}${font}
-${font Roboto:weight=Light:size=11}${voffset 0}${offset 125}${time %d} ${time %B}, ${time %Y}${font}
+Kernel: ${alignr} ${execi 5000 uname -r | sed "s@.fc.*.x86_64@@g" }
+Uptime: ${alignr}${uptime}
+
+CPU1: ${cpu cpu1}%${alignr}CPU2: ${cpu cpu2}%
+Temp: ${alignr}${acpitemp}°C
+${color}CPU History:  ${color darkgreen}${cpugraph 30,0 0000ff 00ff00}
+${color}CPU Usage:${color magenta2} $cpu% ${cpubar 11,0}
+
+Memory: ${mem} ${alignr}${membar 8,60}
+Disk: ${diskio}${alignr}${diskiograph 8,60 F57900 FCAF3E}
+Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
+
+# Processes
+Processes: ${alignr}$processes
+Highest: ${alignr 40}CPU${alignr}RAM
+${voffset -11.5}${hr 1}
+${voffset -4}${top name 1} ${goto 124}${top cpu 1}${alignr }${top mem 1}
+${voffset -1}${top name 2} ${goto 124}${top cpu 2}${alignr }${top mem 2}
+${voffset -1}${top name 3} ${goto 124}${top cpu 3}${alignr }${top mem 3}
+${voffset -1}${top name 4} ${goto 124}${top cpu 4}${alignr }${top mem 4}
+
+${voffset -4}SSID: ${alignr}${wireless_essid wlp3s0}
+${voffset -4}Local IP: ${alignr}${addr wlp3s0}
+${voffset -4}External IP: ${alignr}${execi 600 curl https://icanhazip.com}
+
+${voffset -4}hal:${alignr}${execi 600 /home/user/bin/pingtest server1.com}
+${voffset -4}helper:${alignr}${execi 600 /home/user/bin/pingtest server2.com}

@@ -17,7 +17,7 @@ xset b off
 feh --bg-scale ~/grey.png &
 #nitrogen --restore &
 
-#compton --config ~/.config/compton.conf &
+compton --config ~/.config/compton.conf &
 
 (sleep 2s; tint2 -c ~/.config/tint2/grey_tint2rc) &
 

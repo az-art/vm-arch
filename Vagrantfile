@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "archbox"
+  config.vm.box = "arch"
   config.vm.hostname = "arch.local"
   config.ssh.insert_key = false
   #config.vm.network "forwarded_port", guest: 1521, host: 1521

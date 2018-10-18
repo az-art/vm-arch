@@ -385,7 +385,7 @@
           <enabled>false</enabled>
           <name>Lock screen</name>
         </startupnotify>
-        <command>bl-lock</command>
+        <command>slock</command>
       </action>
     </keybind>
     <keybind key="W-e">

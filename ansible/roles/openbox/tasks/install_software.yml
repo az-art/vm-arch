@@ -9,6 +9,8 @@
     - xorg-xinit
     - xorg-twm
     - xterm
+    - xcompmgr
+    - transset-df
 
 - name: Install LightDM Desktop
   package:
@@ -42,6 +44,7 @@
     - conky
     - nitrogen
     - feh
+    - slock
     - lxappearance
     - ttf-liberation
     - ttf-roboto

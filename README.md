@@ -51,12 +51,12 @@ Overview over all variables you can set in `archlinux-x86_64.json` or
 
 Execute following commands:
 * `make buld` - build packer image and convert it to box.
-* `make register` - register Packer image as a `archbox` in Vagrant library.
+* `make register` - register Packer image as a `arch` in Vagrant library.
 * `make up` - create VirtualBox virtual machine using Vagrant.
 
 ## Post-processors
-* Vagrant
-* Ansible
+* vagrant
+* ansible
 
 ## Ansible roles
 * `arch-xfce4`: following role will install: 
