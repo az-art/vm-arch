@@ -37,8 +37,8 @@ Overview over all variables you can set in `archlinux-x86_64.json` or
 * `arch_version`: Arch version to install (default: 64-bit).
 * `compression_level`: compression level of .box (default: 6).
 * `cpus`: this specifies the number of cores for your VM (default:2).
-* `memory`: this specifies the size of the RAM in bytes (default: 8192).
-* `disk_size`: this specifices the disk size in bytes (default: 40000).
+* `memory`: this specifies the size of the RAM in bytes (default: 512).
+* `disk_size`: this specifices the disk size in bytes (default: 20000).
 * `headless`: this sets GUI on or off (default: false).
 * `iso_checksum`: the url to the checksum file. This can be an url or a filepath beginning with `file://` (default: 0755f656917eb201bff8f702f33c2e2fe149d69d).
 * `iso_checksum_type`: this specifies the hashing algorithm for the checksum (default: sha1).

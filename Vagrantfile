@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
     vb.name = "ArchLinux VM"
     vb.gui = true
+    vb.memory = 8192
     vb.customize ["modifyvm", :id, "--vram", '128']
     vb.customize ["modifyvm", :id, "--accelerate3d", 'on']
     vb.customize ["modifyvm", :id, "--clipboard", 'bidirectional']
