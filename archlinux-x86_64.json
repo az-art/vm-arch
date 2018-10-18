@@ -24,9 +24,7 @@
     "shutdown_command": "sudo systemctl poweroff",
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "{{user `memory`}}"],
-      ["modifyvm", "{{.Name}}", "--cpus", "{{user `cpus`}}"],
-      ["modifyvm", "{{.Name}}", "--accelerate3d", "{{user `accelerate3d`}}"],
-      ["modifyvm", "{{.Name}}", "--clipboard", "{{user `clipboard`}}"]
+      ["modifyvm", "{{.Name}}", "--cpus", "{{user `cpus`}}"]
     ]
   }],
   "provisioners": [{
@@ -54,8 +52,6 @@
     "iso_checksum_type": "sha1",
     "memory": "512",
     "mirror": "http://mirrors.kernel.org/archlinux",
-    "ssh_timeout": "60m",
-    "accelerate3d": "off",
-    "clipboard": "disabled"
+    "ssh_timeout": "60m"
   }
 }

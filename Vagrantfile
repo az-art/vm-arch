@@ -10,7 +10,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
     vb.name = "ArchLinux VM"
     vb.gui = true
-    vb.customize ["modifyvm", :id, "--vram", '100']
+    vb.customize ["modifyvm", :id, "--vram", '128']
+    vb.customize ["modifyvm", :id, "--accelerate3d", 'on']
+    vb.customize ["modifyvm", :id, "--clipboard", 'bidirectional']
   end
 
   #config.vm.synced_folder ".", "/vagrant", disabled: true

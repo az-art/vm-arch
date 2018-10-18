@@ -1,7 +1,7 @@
 ARCH_PACKER_TEMPLATE=archlinux-x86_64.json
 ARCH_BOX_FILE=archlinux-x86_64-virtualbox.box
 ARCH_BOX_NAME=arch
-ARGS=-var accelerate3d=on -var clipboard=bidirectional
+ARGS=
 #ARGS=-var compression_level=0 -var disk_size=4000
 
 .PHONY: all build publish help
