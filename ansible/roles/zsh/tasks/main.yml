@@ -1,5 +1,4 @@
 ---
----
 - name: install ZSH
   package:
     name: "{{item}}"
