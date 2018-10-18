@@ -36,7 +36,7 @@ destroy:
 
 provision:
 	${INFO} "Provisioning... [$(ARCH_BOX_NAME)]."
-	@vagrant provision
+	@vagrant reload --provision
 
 clean:
 	${INFO} "Cleaning up ..."

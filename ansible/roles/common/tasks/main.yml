@@ -1,4 +1,4 @@
 ---
-- include_tasks: configure_user.yml
+#- include_tasks: configure_user.yml
 - include_tasks: install_software.yml
 

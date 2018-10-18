@@ -13,7 +13,8 @@
     scrollbar_position = hidden
     background_image = None
     cursor_color = "#d2c5bc"
-    font = Monospace 14
+    font = Hack Nerd Font 13
+    use_system_font=False
     foreground_color = "#C0B18B"
     show_titlebar = False
     background_color = "#1F1F1F"

@@ -367,7 +367,7 @@
           <enabled>false</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>x-terminal-emulator</command>
+        <command>terminator</command>
       </action>
     </keybind>
     <keybind key="W-w">

@@ -16,12 +16,13 @@ Vagrant.configure("2") do |config|
   #config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "ansible/", "/ansible", type: "rsync"
 
-#  config.vm.provision "ansible_local" do |ansible|
-#    ansible.install_mode = "pip"
-#    ansible.version = "2.4.2.0"
-#    ansible.limit = 'localhost'
-#    ansible.verbose = true
-#    ansible.inventory_path = '/ansible/hosts'
-#    ansible.playbook = "/ansible/arch-xfce4.yml"
-#  end
+
+  config.vm.provision "ansible_local" do |ansible|
+    #ansible.install_mode = "pip"
+    #ansible.version = "2.4.2.0"
+    #ansible.limit = 'localhost'
+    ansible.verbose = true
+    ansible.inventory_path = '/ansible/hosts'
+    ansible.playbook = "/ansible/arch-xfce4.yml"
+  end
 end

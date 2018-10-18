@@ -31,11 +31,11 @@
 - name: Add custon PS1 to .bashrc
   lineinfile: dest=/home/{{ def_user }}/.bashrc line=PS1='\[\033[38;5;208m\]\u\[\033[0m\]@\h [\[$(tput sgr0)\]\[\033[38;5;208m\]\w\\[\033[0m\]]\n\[$(tput bold)\]\[\033[0m\]>>\[$(tput sgr0)\]  ' state=present
 
-- name: Replace lightdm
-  copy: src=lightdm/lightdm-gtk-greeter.conf dest=/etc/lightdm/lightdm-gtk-greeter.conf
+#- name: Replace lightdm
+#  copy: src=lightdm/lightdm-gtk-greeter.conf dest=/etc/lightdm/lightdm-gtk-greeter.conf
 
-- name: Replace lightdm
-  copy: src=lightdm/lightdm.conf dest=/etc/lightdm/lightdm.conf
+#- name: Replace lightdm
+#  copy: src=lightdm/lightdm.conf dest=/etc/lightdm/lightdm.conf
 #- name: Restart system
 #  shell: init 6
 #conky -c ~/.config/.conkyrc

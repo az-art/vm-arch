@@ -1,6 +1,6 @@
 ---
 - name: Provisioning Arch Xfce4 VM
-  hosts: localhost
+  hosts: all
   remote_user: user
   become: yes
 
