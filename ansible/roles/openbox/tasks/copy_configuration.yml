@@ -1,26 +1,47 @@
-- name: Copy Openbox configuration files
-  copy: src=openbox/ dest=/home/vagrant/.config/openbox owner={{ def_user }} group={{ def_user }}
+- name: Copy .config folder
+  copy:
+    src: .config/
+    dest: "/home/{{ def_user }}"
+    owner: "{{ def_user }}"
+    group: "{{ def_user }}"
 
-- name: Copy Openbox theme files
-  copy: src=openbox/FlatSolid/ dest=/usr/share/themes/FlatSolid owner={{ def_user }} group={{ def_user }}
+- name: Copy .themes folder
+  copy:
+    src: .themes/
+    dest: /home/{{ def_user }}
+    owner: "{{ def_user }}"
+    group: "{{ def_user }}"
 
-- name: Copy Terminator configuration files
-  copy: src=terminator/ dest=/home/vagrant/.config/terminator owner={{ def_user }} group={{ def_user }}
+- name: Copy wallpapers folder
+  copy:
+    src: wallpapers/
+    dest: "/home/{{ def_user }}"
+    owner: "{{ def_user }}"
+    group: "{{ def_user }}"
 
-- name: Copy Tint2 configuration files
-  copy: src=tint2/grey_tint2rc dest=/home/vagrant/.config/tint2/ owner={{ def_user }} group={{ def_user }}
-
-- name: Copy Conky configuration files
-  copy: src=conky/.conkyrc dest=/home/vagrant/.config/ owner={{ def_user }} group={{ def_user }}
-
-- name: Copy Compton configuration files
-  copy: src=compton.conf dest=/home/vagrant/.config/ owner={{ def_user }} group={{ def_user }}
-
-- name: Copy GTK3 configuration files
-  copy: src=gtk/settings.ini dest=/home/vagrant/.config/gtk-3.0/ owner={{ def_user }} group={{ def_user }}
-
-- name: Copy background image
-  copy: src=bg/grey.png dest=/home/vagrant/ owner={{ def_user }} group={{ def_user }}
+#- name: Copy Openbox configuration files
+#  copy: src=openbox/ dest=/home/vagrant/.config/openbox owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy Openbox theme files
+#  copy: src=openbox/FlatSolid/ dest=/usr/share/themes/FlatSolid owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy Terminator configuration files
+#  copy: src=terminator/ dest=/home/vagrant/.config/terminator owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy Tint2 configuration files
+#  copy: src=tint2/grey_tint2rc dest=/home/vagrant/.config/tint2/ owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy Conky configuration files
+#  copy: src=conky/.conkyrc dest=/home/vagrant/.config/ owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy Compton configuration files
+#  copy: src=compton.conf dest=/home/vagrant/.config/ owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy GTK3 configuration files
+#  copy: src=gtk-3.0/settings.ini dest=/home/vagrant/.config/gtk-3.0/ owner={{ def_user }} group={{ def_user }}
+#
+#- name: Copy background image
+#  copy: src=backgrounds dest=/home/vagrant/ owner={{ def_user }} group={{ def_user }}
 
 #- name: Enable Xfce
 #  shell: systemctl isolate graphical.target

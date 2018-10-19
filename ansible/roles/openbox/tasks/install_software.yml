@@ -39,12 +39,16 @@
     state: present
   with_items:
     - openbox
+    - obconf
     - compton
     - tint2
     - conky
-    - nitrogen
+#    - nitrogen
     - feh
     - slock
     - lxappearance
     - ttf-liberation
     - ttf-roboto
+
+#    - arc-icon-theme
+#    - arc-icon-theme-git
