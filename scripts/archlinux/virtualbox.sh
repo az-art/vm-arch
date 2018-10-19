@@ -22,3 +22,4 @@ fi
 
 sudo pacman -S --noconfirm virtualbox-guest-utils virtualbox-guest-modules-arch
 sudo systemctl enable vboxservice
+echo 'LD_PRELOAD=/lib/VBoxOGL.so' | sudo tee --append /etc/environment

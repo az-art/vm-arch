@@ -66,7 +66,7 @@ border_color = #FFFFFF 0
 panel_monitor = all
 panel_position = bottom left horizontal
 panel_items = TSC
-panel_size = 1920 54
+panel_size = 1920 50
 panel_margin = 0 0
 panel_padding = 0 0
 panel_dock = 0
@@ -140,9 +140,9 @@ systray_icon_asb = 100 0 0
 
 # Clock
 time1_format = %H:%M
-time1_font = San Francisco Display Light 25
+time1_font = DS-Digital 33
 clock_font_color = #ffffff 80
-clock_padding = 12 4
+clock_padding = 10 0
 clock_background_id = 9
 clock_lclick_command = gsimplecal
 clock_rclick_command = gsimplecal

@@ -9,8 +9,8 @@
     - xorg-xinit
     - xorg-twm
     - xterm
-    - xcompmgr
-    - transset-df
+#    - xcompmgr
+#    - transset-df
 
 - name: Install LightDM Desktop
   package:
@@ -20,6 +20,11 @@
     - lightdm
     - lightdm-gtk-greeter
 
+- name: Enable LightDM
+  systemd:
+    name: lightdm.service
+    enabled: yes
+
 - name: Install Xfce4 Desktop
   package:
     name: "{{item}}"
@@ -27,11 +32,6 @@
   with_items:
     - xfce4
     - xfce4-goodies
-
-- name: Enable LightDM
-  systemd:
-    name: lightdm.service
-    enabled: yes
 
 - name: Install Openbox & Utils
   package:

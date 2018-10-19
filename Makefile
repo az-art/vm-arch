@@ -4,7 +4,7 @@ ARCH_BOX_NAME=arch
 ARGS=
 #ARGS=-var compression_level=0 -var disk_size=4000
 
-.PHONY: all build publish help
+.PHONY: all validate build register up destroy provision clean help
 
 .DEFAULT_GOAL := default
 
@@ -40,7 +40,8 @@ provision:
 
 clean:
 	${INFO} "Cleaning up ..."
-	@ docker images --filter=reference='$(IMAGE_NAME)' -q | xargs -r docker rmi -f
+	@-rm *.box
+	@-vagrant box remove $(ARCH_BOX_NAME)
 
 help:
 	${INFO} "-----------------------------------------------------------------------"

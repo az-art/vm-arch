@@ -21,6 +21,12 @@
     group: "{{ item.usergroup }}"
   with_items: "{{ ohmyzsh_users }}"
 
+- name: Download DS-Digital Font
+  get_url:
+    url: https://www.wfonts.com/download/data/2014/11/02/ds-digital/DS-DIGI.TTF
+    dest: /usr/share/fonts/TTF/
+    mode: 0755
+
 - name: Download Hack Regular Nerd Font
   get_url:
     url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
