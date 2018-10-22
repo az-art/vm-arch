@@ -38,6 +38,7 @@
     name: "{{item}}"
     state: present
   with_items:
+    - obmenu
     - openbox
     - obconf
     - compton
@@ -49,6 +50,8 @@
     - lxappearance
     - ttf-liberation
     - ttf-roboto
+    - arc-gtk-theme
+    - arc-icon-theme
 
 #    - arc-icon-theme
 #    - arc-icon-theme-git

@@ -37,29 +37,32 @@ color2 white
 
 
 TEXT
-Kernel: ${alignr} ${execi 5000 uname -r | sed "s@.fc.*.x86_64@@g" }
-Uptime: ${alignr}${uptime}
 
-CPU1: ${cpu cpu1}%${alignr}CPU2: ${cpu cpu2}%
-CPU3: ${cpu cpu3}%${alignr}CPU4: ${cpu cpu4}%
-Temp: ${alignr}${acpitemp}°C
 
-Memory: ${mem} ${alignr}${membar 8,60}
-Disk: ${diskio}${alignr}${diskiograph 8,60 F57900 FCAF3E}
-Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
+❯ CPU_AV.  ${cpu}%
+❯ MEM.     ${mem MEM0}
+❯ BAT.     ${battery_percent BAT0}%
+
+
+#Kernel: ${alignr} ${execi 5000 uname -r | sed "s@.fc.*.x86_64@@g" }
+#Uptime: ${alignr}${uptime}
+
+#CPU1: ${cpu cpu1}%${alignr}CPU2: ${cpu cpu2}%
+#Temp: ${alignr}${acpitemp}°C
+
+#Memory: ${mem} ${alignr}${membar 8,60}
+#Disk: ${diskio}${alignr}${diskiograph 8,60 F57900 FCAF3E}
+#Battery: ${battery_percent BAT0}% ${alignr}${battery_bar 8,60 BAT0}
 
 # Processes
-Processes: ${alignr}$processes
-Highest: ${alignr 40}CPU${alignr}RAM
-${voffset -11.5}${hr 1}
-${voffset -4}${top name 1} ${goto 124}${top cpu 1}${alignr }${top mem 1}
-${voffset -1}${top name 2} ${goto 124}${top cpu 2}${alignr }${top mem 2}
-${voffset -1}${top name 3} ${goto 124}${top cpu 3}${alignr }${top mem 3}
-${voffset -1}${top name 4} ${goto 124}${top cpu 4}${alignr }${top mem 4}
+#Processes: ${alignr}$processes
+#Highest: ${alignr 40}CPU${alignr}RAM
+#${voffset -11.5}${hr 1}
+#${voffset -4}${top name 1} ${goto 124}${top cpu 1}${alignr }${top mem 1}
+#${voffset -1}${top name 2} ${goto 124}${top cpu 2}${alignr }${top mem 2}
+#${voffset -1}${top name 3} ${goto 124}${top cpu 3}${alignr }${top mem 3}
+#${voffset -1}${top name 4} ${goto 124}${top cpu 4}${alignr }${top mem 4}
 
-${voffset -4}SSID: ${alignr}${wireless_essid wlp3s0}
-${voffset -4}Local IP: ${alignr}${addr wlp3s0}
-${voffset -4}External IP: ${alignr}${execi 600 curl https://icanhazip.com}
-
-${voffset -4}hal:${alignr}${execi 600 /home/user/bin/pingtest server1.com}
-${voffset -4}helper:${alignr}${execi 600 /home/user/bin/pingtest server2.com}
+#${voffset -4}SSID: ${alignr}${wireless_essid wlp3s0}
+#${voffset -4}Local IP: ${alignr}${addr wlp3s0}
+#${voffset -4}External IP: ${alignr}${execi 600 curl https://icanhazip.com}

@@ -1,20 +1,20 @@
 - name: Copy .config folder
   copy:
-    src: .config/
+    src: .config
     dest: "/home/{{ def_user }}"
     owner: "{{ def_user }}"
     group: "{{ def_user }}"
 
 - name: Copy .themes folder
   copy:
-    src: .themes/
+    src: .themes
     dest: /home/{{ def_user }}
     owner: "{{ def_user }}"
     group: "{{ def_user }}"
 
 - name: Copy wallpapers folder
   copy:
-    src: wallpapers/
+    src: wallpapers
     dest: "/home/{{ def_user }}"
     owner: "{{ def_user }}"
     group: "{{ def_user }}"

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+    <menu id="root-menu" label="Openbox 3">
+        <item label="Run Program">
+            <action name="Execute">
+                <command>
+                    gmrun
+                </command>
+            </action>
+        </item>
+        <separator/>
+        <item label="Terminal">
+            <action name="Execute">
+                <command>
+                    terminator
+                </command>
+            </action>
+        </item>
+        <item label="Web Browser">
+            <action name="Execute">
+                <command>
+                    firefox
+                </command>
+            </action>
+        </item>
+        <item label="File Manager">
+            <action name="Execute">
+                <command>
+                    thunar
+                </command>
+            </action>
+        </item>
+        <separator/>
+        <menu id="accessories" label="Accessories">
+            <item label="Catfish File Search">
+                <action name="Execute">
+                    <command>
+                        catfish
+                    </command>
+                </action>
+            </item>
+            <item label="Archive Manager">
+                <action name="Execute">
+                    <command>
+                        file-roller
+                    </command>
+                </action>
+            </item>
+            <item label="Task Manager (htop)">
+                <action name="Execute">
+                    <command>terminator -T 'htop task manager' -e htop</command>
+                </action>
+            </item>
+        </menu>
+        <menu id="preferences" label="Preferences">
+            <menu>
+                <item label="Tint2">
+                    <action name="Execute">
+                        <command>
+                            terminator -T 'Edit tint2 theme' -e vim ~/.config/tint2/grey_tint2rc
+                        </command>
+                    </action>
+                </item>
+            </menu>
+            <menu id="obConfig" label="Openbox">
+                <item label="Edit menu.xml">
+                    <action name="Execute">
+                        <command>
+                            terminator -T 'Edit menu.xml' -e vim ~/.config/openbox/menu.xml
+                        </command>
+                    </action>
+                </item>
+                <item label="Edit rc.xml">
+                    <action name="Execute">
+                        <command>
+                            terminator -T 'Edit rc.xml' -e vim ~/.config/openbox/rc.xml
+                        </command>
+                    </action>
+                </item>
+                <item label="Edit autostart">
+                    <action name="Execute">
+                        <command>
+                            terminator -T 'Edit autostart' -e vim ~/.config/openbox/rc.xml
+                        </command>
+                    </action>
+                </item>
+                <separator/>
+                <item label="GUI Menu Editor">
+                    <action name="Execute">
+                        <command>
+                            obmenu
+                        </command>
+                    </action>
+                </item>
+                <item label="GUI Config Tool">
+                    <action name="Execute">
+                        <command>
+                            obconf
+                        </command>
+                    </action>
+                </item>
+                <separator/>
+                <item label="Reconfigure">
+                    <action name="Reconfigure"/>
+                </item>
+                <item label="Restart">
+                    <action name="Restart"/>
+                </item>
+            </menu>
+            <item label="Appearance">
+                <action name="Execute">
+                    <command>
+                        lxappearance
+                    </command>
+                </action>
+            </item>
+        </menu>
+        <separator/>
+        <item label="Exit">
+            <action name="Exit">
+                <promt>yes</promt>
+            </action>
+        </item>
+    </menu>
+</openbox_menu>

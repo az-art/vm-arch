@@ -104,6 +104,7 @@ task_background_id = 5
 task_active_background_id = 3
 task_urgent_background_id = 4
 task_iconified_background_id = 2
+taskbar_name = 1
 
 # Task Icons
 task_icon_asb = 100 -100 0
@@ -140,7 +141,7 @@ systray_icon_asb = 100 0 0
 
 # Clock
 time1_format = %H:%M
-time1_font = DS-Digital 33
+time1_font = Roboto Thin 24
 clock_font_color = #ffffff 80
 clock_padding = 10 0
 clock_background_id = 9
