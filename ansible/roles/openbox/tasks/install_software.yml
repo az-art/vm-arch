@@ -52,6 +52,4 @@
     - ttf-roboto
     - arc-gtk-theme
     - arc-icon-theme
-
-#    - arc-icon-theme
-#    - arc-icon-theme-git
+    - gtk-engine-murrine

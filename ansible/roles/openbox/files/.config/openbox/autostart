@@ -1,9 +1,5 @@
 ## SETTINGS START
-
-## Configure touchpad. See 'man synaptics' for more info.
-synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-
 ## Adjust the values according to your preferances.
 xset r rate 250 25
 
@@ -11,34 +7,13 @@ xset r rate 250 25
 xset b off
 ## SETTINGS END
 
-## GNOME PolicyKit authentication
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
 feh --bg-scale ~/wallpapers/grey.png &
-#nitrogen --restore &
-
 compton --config ~/.config/compton.conf &
-
 (sleep 2s; tint2 -c ~/.config/tint2/grey_tint2rc) &
-
-## Start the Conky session (the default conkyrc will run if no sessions have been set)
-#(sleep 2s; bl-conky-session --autostart) &
 #(sleep 2s; conky -c ~/.config/.conkyrc) &
-
-## Volume control for systray
-(sleep 2; volti) &
-
-## Volume keys daemon
-xfce4-volumed &
 
 ## Start Clipboard manager
 (sleep 3; clipit) &
 
 ## Enable power management
 xfce4-power-manager &
-
-## Start the battery applet
-(sleep 2; fdpowermon) &
-
-## Start xscreensaver (light-locker now used by default, run via XDG autostart.)
-#xscreensaver -no-splash &

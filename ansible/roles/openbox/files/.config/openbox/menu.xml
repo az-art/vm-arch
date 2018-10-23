@@ -17,7 +17,7 @@
         <item label="Terminal">
             <action name="Execute">
                 <command>
-                    terminator
+                    terminator --geometry=800x490+0+0
                 </command>
             </action>
         </item>
@@ -71,21 +71,21 @@
                 <item label="Edit menu.xml">
                     <action name="Execute">
                         <command>
-                            terminator -T 'Edit menu.xml' -e vim ~/.config/openbox/menu.xml
+                            terminator -x vim ~/.config/openbox/menu.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit rc.xml">
                     <action name="Execute">
                         <command>
-                            terminator -T 'Edit rc.xml' -e vim ~/.config/openbox/rc.xml
+                            terminator -x vim ~/.config/openbox/rc.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit autostart">
                     <action name="Execute">
                         <command>
-                            terminator -T 'Edit autostart' -e vim ~/.config/openbox/rc.xml
+                            terminator -x vim ~/.config/openbox/rc.xml
                         </command>
                     </action>
                 </item>
