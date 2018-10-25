@@ -8,7 +8,7 @@ You'll need the following dependencies to start:
 
 * packer (for base box creation)
 * vagrant (for vagrant images)
-* make
+* make (https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058)
 * virtualbox (for virtualbox support)
  
 ## Overview
