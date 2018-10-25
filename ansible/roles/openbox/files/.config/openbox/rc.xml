@@ -367,7 +367,7 @@
           <enabled>false</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>terminator</command>
+        <command>terminator --geometry=800x490+15+15</command>
       </action>
     </keybind>
     <keybind key="W-w">
@@ -412,7 +412,7 @@
           <enabled>false</enabled>
           <name>htop</name>
         </startupnotify>
-        <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
+        <command>terminator -T 'htop task manager' -e htop</command>
       </action>
     </keybind>
     <keybind key="W-v">

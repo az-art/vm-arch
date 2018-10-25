@@ -17,7 +17,7 @@
         <item label="Terminal">
             <action name="Execute">
                 <command>
-                    terminator --geometry=800x490+0+0
+                    terminator --geometry=800x490+15+15
                 </command>
             </action>
         </item>
@@ -62,7 +62,7 @@
                 <item label="Tint2">
                     <action name="Execute">
                         <command>
-                            terminator -T 'Edit tint2 theme' -e vim ~/.config/tint2/grey_tint2rc
+                            terminator -x vim vim ~/.config/tint2/grey_tint2rc
                         </command>
                     </action>
                 </item>
