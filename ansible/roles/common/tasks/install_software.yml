@@ -3,6 +3,9 @@
     update_cache: yes
     upgrade: yes
 
+- name: Update keyring
+  command: pacman -Sy archlinux-keyring
+
 - name: Install packages
   package:
     name: "{{ item }}"

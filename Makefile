@@ -10,7 +10,7 @@ ARGS=
 
 default: help ;
 
-all: build register clean
+all: build register
 
 validate:
 	${INFO} "Validating packer image... [$(ARCH_PACKER_TEMPLATE)]"
