@@ -4,7 +4,7 @@
     upgrade: yes
 
 - name: Update keyring
-  command: pacman -Sy archlinux-keyring
+  command: pacman -Sy archlinux-keyring -y
 
 - name: Install packages
   package:
